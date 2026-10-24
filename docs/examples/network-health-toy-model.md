@@ -8,6 +8,8 @@ Tidepool should encourage service coverage, participation by independently contr
 
 Local hubs can aggregate traffic, cache data, and reduce expensive long-distance transfers. Keep their authority limited: being an efficient gateway does not confer control of identity, verification, procurement, or protocol upgrades. Where the environment permits, preserve alternate routes and avoid placing all data replicas behind one hub or on one carrier.
 
+Hub-and-spoke connectivity does not make trades honest or witnesses independent. A hub may enforce a local policy, but outsiders still verify claims under their own rules. Local preferences, gifts, and reciprocal trades remain permitted; their endorsements do not automatically earn wider trust or access to shared funds. Independent evidence from a local task can still be accepted outside the group. The [trade case](distributed-trust-network-of-trade.md) defines this boundary; the topology model does not simulate collusion or reputation.
+
 The Bitcoin comparison concerns the reward mechanism, not an intention to reward only a few participants. Bitcoin's mining reward goes to a successful block producer; mining pools share proceeds among contributing miners [bitcoin-mining]. Tidepool can instead pay each accepted service provider and separately support participants whose contribution improves coverage or resilience. This does not guarantee equal income or eliminate economies of scale.
 
 ## Seven-node example
