@@ -8,6 +8,8 @@ Read [Distributed trust network of trade](docs/examples/distributed-trust-networ
 
 Explore [Network health and adaptive topology: a toy model](docs/examples/network-health-toy-model.md) for local hubs, alternate routes, newcomer contributions, and protocol improvement.
 
+Read the [v0 protocol sketch: local ledgers and evidence on demand](docs/protocol/local-ledgers-v0.md) for signed journals, selective replication, request-specific evidence, and scoped allocation accounting.
+
 The example considers nodes with power, compute, storage, and communications; optional LLM agents; proof of useful task completion; and trust scoped to a resource, quantity, counterparty, and time window. Here, “PoW” means independently verifiable delivery, computation, or storage service.
 
 The proposed first draft uses local resource enforcement, service-specific verification, and bilateral contracts, with AT Protocol evaluated for identity, discovery, and synchronisation. Surplus capacity and donations can fund bounded trial allowances for newcomers; observed results support gradual increases in access. Service earnings or explicitly funded grants can support hardware purchases and maintenance. Power is an operating input to those provisions.
