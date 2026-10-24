@@ -112,6 +112,18 @@ The pilot starts with known sponsors and verifiers, and admits newcomers to boun
 
 The contract specifies who can resolve disputes, what evidence they see, and how cancellations or partial delivery are valued. Suspend disputed exposure rather than silently treating a unilateral receipt as agreement. Model changes do not reset operator history. Key rotation and revocation require an authenticated continuity process; stale credentials receive lower limits or are refused.
 
+### Local preference and acceptance outside the local group
+
+Participants may prefer familiar peers, give favourable terms, exchange gifts, or operate a local reciprocal economy. Locality, friendship, repeated trade, or choosing a trusted hub is not itself misconduct. Local trust can authorise use of the parties' own resources without creating a claim on anyone else's resources.
+
+Hub-and-spoke topology does not prevent fabricated or circular exchanges. A hub can help retain evidence, detect duplicate claims, enforce its own quotas, and organise checks. However, a colluding hub can endorse false claims, and two apparently separate hubs may share control. Multiple network identities cannot simply be counted as independent parties; this is the [Sybil problem][sybil]. Routing structure and trust policy are distinct.
+
+There is no automatic conversion from local endorsement into universal reputation, shared-fund eligibility, or voting authority. Each receiving counterparty or funding domain applies its own acceptance policy. Carry evidence with its issuer, task, beneficiary, scope, verification method, known affiliations, and expiry. Preserve the original evidence when relaying an attestation; additional hub signatures do not manufacture additional independent observations. Do not infer common ownership solely from geography, friendship, or an IP address.
+
+For example, A and B may perform 10,000 transfers through their preferred hub. They may genuinely deliver those bytes and choose to pay each other, but the volume does not by itself demonstrate 10,000 independent customers or justify a common subsidy. Before drawing on shared funds, a task needs authorised demand, an available budget, and acceptance under the fund's verification policy. Correctness checks alone do not prove demand or beneficiary independence. External verification must be independent of the claimants, or establish the relevant objective property through a sound verifier; it must not merely repeat the hub's assertion. Any additional independence requirement for funding still applies.
+
+Local work can nevertheless produce evidence that outsiders independently verify and accept. A valid computation proof or an externally observed retrieval remains useful evidence regardless of where the task originated, within its precise scope. Unknown external trust is not a penalty or a finding of fraud. Restricting access to shared funds for insufficient evidence is different from punishing local preference; consequences for fabrication or contractual failure must follow the agreed policy and dispute process.
+
 ### Surplus-funded entry and gradual trust
 
 “Buy in” can be contributed hardware capacity, a small service successfully delivered, an agreed deposit, or a sponsor-funded trial. Cash purchase is not a mandatory entry requirement. Donated capacity is an explicit grant with a resource type, maximum quantity, eligible tasks, recipient, expiry, and named issuer; it does not create an unrestricted transferable balance.
@@ -253,6 +265,7 @@ Next, test on physically independent hosts with separately controlled verificati
 | Replayed receipts and stream duplicates | No repeated allocation, service, or credit effect |
 | Storage deletion and false compute result | Defined verification detects the injected fault; sampling limitations are reported |
 | False capacity or collusive peer claims | Exposure remains within local aggregate limits; false attestations do not mint value |
+| Circular local trades endorsed by one or several hubs | Local preferences remain permitted; endorsement chains and transaction counts cannot automatically raise shared-fund eligibility or independent-observer counts |
 | Matching hashes of an incorrect result | Digest agreement is not accepted as correctness; the independent acceptance predicate is exercised |
 | Replayed delivery or self-generated traffic | No duplicate payment; uncommissioned traffic cannot draw from the common budget |
 | Shared storage behind several identities | Availability results do not count as demonstrated independent replicas |
@@ -301,6 +314,7 @@ External implementation facts were checked on 24 October 2026. The proposed Tide
 [bitcoin]: https://bitcoin.org/bitcoin.pdf
 [merge]: https://ethereum.org/roadmap/merge/
 [bft]: https://www.usenix.org/conference/osdi-99/practical-byzantine-fault-tolerance
+[sybil]: https://www.microsoft.com/en-us/research/publication/the-sybil-attack/
 
 - [AT Protocol overview][at-overview], [repository specification][at-repo], and [DID specification][at-did].
 - [Lexicon specification](https://atproto.com/specs/lexicon) and [TypeScript implementation][at-code].
@@ -313,3 +327,4 @@ External implementation facts were checked on 24 October 2026. The proposed Tide
 - Satoshi Nakamoto, [Bitcoin: A Peer-to-Peer Electronic Cash System][bitcoin] (2008).
 - Ethereum documentation, [The Merge][merge].
 - Miguel Castro and Barbara Liskov, [Practical Byzantine Fault Tolerance][bft] (1999).
+- John R. Douceur, [The Sybil Attack][sybil] (2002).
