@@ -6,8 +6,12 @@ Exploring a distributed trust network of trade: resource-owning nodes exchange u
 
 Read [Distributed trust network of trade](docs/examples/distributed-trust-network-of-trade.md).
 
-The example considers nodes with power, compute, storage, and communications; optional LLM agents; bounded proof of work for admission; evidence of provision; and trust scoped to a resource, quantity, counterparty, and time window.
+Explore [Network health and adaptive topology: a toy model](docs/examples/network-health-toy-model.md) for local hubs, alternate routes, newcomer contributions, and protocol improvement.
 
-The proposed first draft uses local resource enforcement and bilateral contracts, with AT Protocol evaluated for identity, discovery, and synchronisation. It does not require a network-wide currency or mining consensus.
+The example considers nodes with power, compute, storage, and communications; optional LLM agents; proof of useful task completion; and trust scoped to a resource, quantity, counterparty, and time window. Here, “PoW” means independently verifiable delivery, computation, or storage service.
+
+The proposed first draft uses local resource enforcement, service-specific verification, and bilateral contracts, with AT Protocol evaluated for identity, discovery, and synchronisation. Surplus capacity and donations can fund bounded trial allowances for newcomers; observed results support gradual increases in access. Service earnings or explicitly funded grants can support hardware purchases and maintenance. Power is an operating input to those provisions.
+
+Broad useful participation, independent recovery paths, and improvements to network health are explicit goals. Efficient hubs can coexist with distributed control and tested alternatives; raw identity count earns no automatic reward.
 
 **Status:** design draft for discussion, dated 24 October 2026. This repository does not yet contain a running implementation or measured performance results. The example distinguishes proposed choices from guarantees that still need implementation and testing.
