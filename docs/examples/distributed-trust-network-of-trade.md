@@ -2,6 +2,8 @@
 
 **Status:** proposed architecture and worked scenario, 24 October 2026. Documentation only; no implementation or performance claims.
 
+The [useful-work lab](../../examples/trust-lab/README.md), added 25 October 2026, provides small executable contracts and 29 cooperation, attack, and boundary cases for a subset of this scenario. Its same-machine worker tests do not validate independent operators or the complete proposed network.
+
 **Working definition:** “PoW” in this case means useful task completion that others can verify or judge: information delivery, computation, and storage/retrieval. Successful provision can earn payment, reciprocal service, and greater scoped trust. The protocol does not require computational admission puzzles or competitive mining.
 
 ## 1. Purpose and working assumptions

@@ -2,6 +2,8 @@
 
 **Status:** proposed v0 architecture, 24 October 2026. This is a reviewable protocol sketch, not implemented software, a complete wire specification, or a proven consensus protocol. It extends the [trade case](../examples/distributed-trust-network-of-trade.md) and [network-health model](../examples/network-health-toy-model.md).
 
+**Executable follow-up, 25 October 2026:** the [useful-work lab](../../examples/trust-lab/README.md) exercises a bounded subset using real local work, signatures, selective evidence retrieval, and an in-memory allocation authority. Its 29 scenarios include deliberate failures and known limitations. It does not implement this complete architecture or its durability/independence requirements.
+
 ## 1. Answer and organising principle
 
 No participant needs to hold the history of the entire network. Nodes retain their own obligations, share relevant contract evidence, and fetch additional evidence when deciding whether to accept a request. Hubs provide discovery and caches. A request is evaluated against a bounded, verified view assembled for that decision.
