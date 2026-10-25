@@ -4,6 +4,47 @@ An executable, disposable test bench for [Tidepool](https://github.com/TechyBen/
 
 The browser application is buildless: `dist/index.html`, local ES modules, and CSS. No dependencies, analytics, external APIs, wallet, or real money. The same scenario runner also runs with Node workers and filesystem storage.
 
+## Network graph
+
+The **Network** section adds an interactive topology with **12 nodes, seven primary service roles, and ten declared operators** in the baseline fixture. Select a node to see its owner, site, power dependency, offered resources and local ledger responsibilities. Every node still has local power, controller compute, journal storage and communications; a role describes its offered service, not its entire hardware stack.
+
+![Default Tidepool network graph: service roles and computed work routes](overview.svg)
+
+This is a static snapshot of the default graph. The website recalculates routes and request requirements when its controls change.
+
+| Node | Primary role | Declared operator |
+| --- | --- | --- |
+| Cove client | Requester | Cove cooperative |
+| Solar compute | Compute | Cove cooperative |
+| Cove storage | Storage | Harbor storage collective |
+| West hub | Relay | West Mesh |
+| West verifier | Verifier | West review lab |
+| Common fund | Sponsor / scoped issuer | Common fund |
+| Ridge relay | Relay / newcomer | Ridge newcomer |
+| East verifier | Verifier | East review lab |
+| East hub | Relay | East Mesh |
+| East compute | Compute | East compute workshop |
+| East storage | Storage | East archive cooperative |
+| East archive | Evidence archive, also storage | East archive cooperative |
+
+**Independence is multidimensional.** Separate node names, roles, keys or routes do not establish separate control. East storage and East archive share an operator despite different sites. Cove client and Solar compute share both an operator and power dependency. The inspector exposes those relationships, and ownership or power views recolour the graph without changing topology.
+
+Three asks run through the same planner:
+
+- **Compute:** one reachable compute provider outside the requester's declared control, two reachable verifiers controlled separately from the requester, provider and one another, and a reachable grant issuer.
+- **Storage:** two reachable 2 GiB offers with known, distinct operators, sites and power dependencies, outside the requester's control; one separately controlled verifier; and the issuer.
+- **Delivery:** an end-to-end route to East compute, known destination control distinct from the requester, and a reachable issuer. A real contract would additionally require an authentic fresh destination receipt.
+
+The graph has ten scenarios, including a failed hub/backbone, an operator outage affecting multiple nodes, storage consolidated under one owner, shared storage power, unknown ownership, a captured verifier, a disconnected issuer, and a cross-region partition. Individual nodes, all nodes of a selected operator, or a shared power domain can also be taken offline. Reset restores the fixture.
+
+Routes are computed using the widest available **single path**, with fewer hops as the tie-breaker. Only explicitly configured forwarding nodes may be intermediate hops; the grant issuer cannot become an accidental router. The default main route has an illustrative 6 Mb/s bottleneck; the fallback through Ridge has 2 Mb/s. These are link assumptions, not measured throughput. Competing flows, airtime, latency deadlines, physical independence and undeclared shared infrastructure are not modeled.
+
+The evidence layer shows paths to the modeled holders relevant to the ask. For baseline compute these are the requester, provider, two verifiers and issuer; transit hubs do not need their complete histories. The graph does **not** fetch real ledger objects or issue reservations. `PLANNABLE` means its displayed assumptions satisfy this planning policy, not that a contract completed or funds were reserved. `DEFER` means a requirement is unmet, not that a node committed fraud. Local work remains permissible even if it cannot satisfy a particular sponsored outside-demand ask.
+
+Use **Open related work test** to select the corresponding executable test in the bench. That test does actual local operations with its own worker identities; it does not deploy the graph's declared operators. Export topology JSON for the fixture, current plan and assumptions, or SVG for the selected view.
+
+Run just the graph checks with `npm run test:network`. Twenty checks cover routing, failure propagation, independent-control requirements, unknown ownership, resource bounds and graph output, including route invariants across all 30 scenario/request combinations. The graph source is [dist/network-model.mjs](dist/network-model.mjs), [dist/network-view.mjs](dist/network-view.mjs), and [dist/network-ui.mjs](dist/network-ui.mjs); its checks are in [tests/network.mjs](tests/network.mjs).
+
 ## Run
 
 With Node 22 or newer:
@@ -12,7 +53,7 @@ With Node 22 or newer:
 npm test
 ```
 
-This executes 29 scenarios and additional arithmetic, signature, Merkle, custom-input, conservation, and incentive checks. Temporary files and the last JSON report are under ignored `.qa/`. The report contains fresh public keys and signatures; its contents and timings change between runs.
+This executes the 29 work scenarios and their additional arithmetic, signature, Merkle, custom-input, conservation, and incentive checks, then 20 network-graph checks. Temporary files and the last JSON report are under ignored `.qa/`. The report contains fresh public keys and signatures; its contents and timings change between runs.
 
 To serve the browser application locally, from this directory:
 

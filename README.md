@@ -12,6 +12,8 @@ Read the [v0 protocol sketch: local ledgers and evidence on demand](docs/protoco
 
 Run the [useful-work lab and executable test suite](examples/trust-lab/README.md): real CSV computation, worker-to-worker byte delivery, storage/retrieval, scoped evidence, bounded funding, and 29 cooperation, attack, and boundary scenarios. The browser interface also explores audit incentives with actual computed results and explicitly assumed payoffs. [Open the hosted lab](https://tidepool-trust-lab.techyben.chatgpt.site) (owner-private access).
 
+The lab's [network graph](examples/trust-lab/README.md#network-graph) models twelve nodes across seven service roles. Inspect ownership, power dependencies and local-ledger responsibilities; compare work/evidence routes; and test hub failures, shared control, verifier capture and partitions. Its planner uses declared assumptions and has 20 checks; it does not discover or certify real independent operators.
+
 The example considers nodes with power, compute, storage, and communications; optional LLM agents; proof of useful task completion; and trust scoped to a resource, quantity, counterparty, and time window. Here, “PoW” means independently verifiable delivery, computation, or storage service.
 
 The proposed first draft uses local resource enforcement, service-specific verification, and bilateral contracts, with AT Protocol evaluated for identity, discovery, and synchronisation. Surplus capacity and donations can fund bounded trial allowances for newcomers; observed results support gradual increases in access. Service earnings or explicitly funded grants can support hardware purchases and maintenance. Power is an operating input to those provisions.

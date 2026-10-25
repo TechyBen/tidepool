@@ -90,6 +90,11 @@ document.addEventListener('click',e=>{
   const artifact=e.target.closest('[data-artifact]');if(artifact){const a=state.results.get(state.selected)?.artifacts?.[Number(artifact.dataset.artifact)];if(a)download(a.name,a.bytes??a.text,a.type);}
 });
 $('case-filter').addEventListener('change',renderList);
+document.addEventListener('tidepool:open-case',event=>{
+  if(!CASES.some(c=>c.id===event.detail?.id))return;
+  state.selected=event.detail.id;$('case-filter').value='all';renderList();renderDetail();
+  $('bench').scrollIntoView({behavior:'smooth',block:'start'});
+});
 $('run-all').addEventListener('click',()=>run(CASES.map(c=>c.id)));
 $('run-one').addEventListener('click',()=>run([state.selected]));
 $('export-case').addEventListener('click',()=>exportResult(state.results.get(state.selected)));

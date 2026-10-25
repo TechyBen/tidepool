@@ -2,6 +2,6 @@
   "name": "tidepool-trust-lab",
   "private": true,
   "type": "module",
-  "scripts": {"test": "node tests/run.mjs"},
+  "scripts": {"test": "node tests/run.mjs && node tests/network.mjs", "test:network": "node tests/network.mjs"},
   "engines": {"node": ">=22"}
 }
